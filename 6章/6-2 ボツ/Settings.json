@@ -1,0 +1,11 @@
+{
+    "show_sum": true,
+    "start_coin": 100,
+
+    "choice_pattern": {
+        "split": false,
+        "double_down": false,
+        "surrender": false,
+        "insurance": false
+    }
+}
