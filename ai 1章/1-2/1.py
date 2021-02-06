@@ -5,7 +5,7 @@ from sklearn.cluster import KMeans
 
 
 # 資料を読み込み
-df = pd.read_csv('info_1.csv', header=None, names=['x', 'y'])
+df = pd.read_csv('1.csv', header=None, names=['x', 'y'])
 
 # KMeansを初期化
 kmeans = KMeans(init='random', n_clusters=3)

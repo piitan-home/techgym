@@ -11,9 +11,9 @@ from urlallow import allow_all_https
 allow_all_https(show_warning=False)
 # ファイルダウンロード
 
-if os.path.isfile('11.zip'):
+zip_ = '11.zip'
+if not os.path.isfile('11.zip'):
     url = 'https://www.aozora.gr.jp/cards/001847/files/57347_ruby_57225.zip'
-    zip_ = '11.zip'
     urllib.request.urlretrieve(url, zip_)
 
 # ダウンロードしたzipの解凍
