@@ -10,4 +10,3 @@ display(sc.transform(x))
 
 df = pd.DataFrame(x)
 new_df = (df - df.min()) / (df.max() - df.min())
-
