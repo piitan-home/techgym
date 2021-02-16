@@ -1,8 +1,8 @@
+from category_encoders import OneHotEncoder
 import pandas as pd
 from pandas.core.frame import DataFrame
 import requests
 import io
-from sklearn.preprocessing import LabelEncoder
 from IPython.display import display
 
 
@@ -15,17 +15,13 @@ auto.columns = ['symboling', 'normalized-losses', 'make', 'fuel-type', 'aspirati
                 'curb-weight', 'engine-type', 'num-of-cylinders', 'engine-size', 'fuel-system', 'bore',
                 'stroke', 'compression-ratio', 'horsepower', 'peak-rpm', 'city-mpg', 'highway-mpg', 'price']
 
-enc = LabelEncoder()
-label_make = enc.fit_transform(auto['make'])
-auto['label_make'] = label_make
+list_cols = ['body-style', 'engine-type']
 
-count = auto.groupby('make')['label_make'].count()
+# OneHotEncodeしたい列を指定(Nullや不明の場合の補完方法も指定)
+ce_ohe = OneHotEncoder(cols=list_cols)
 
+# 変換後のデータフレーム
+auto_ce = ce_ohe.fit_transform(auto[list_cols])
 
-def counter(num: int) -> int:
-    return count[num]
-
-
-auto['count_make'] = auto['label_make'].map(counter)
-
-display(auto)
+# 表示
+display(auto_ce)
