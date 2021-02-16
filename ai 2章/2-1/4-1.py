@@ -1,5 +1,4 @@
 import numpy as np
-from numpy.core.fromnumeric import mean
 import pandas as pd
 from IPython.display import display
 from sklearn.preprocessing import StandardScaler
